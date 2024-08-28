@@ -1,0 +1,55 @@
+body {
+    background-image: url('../img/Montaje1.jpg');
+    background-size: cover;
+    background-position: center;
+    margin: 0;
+    height: 100vh;
+    display: flex;
+    justify-content: end;
+    align-items: center; /* Centrar verticalmente */
+}
+
+/* Contenedor del formulario */
+.form-container {
+    margin-right: 100px;
+    display: flex;
+    flex-direction: column;
+    /* align-items: center; */
+    background: rgba(255, 255, 255, 0.6); /* Fondo blanco semi-transparente */
+    padding: 40px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Estilos para los campos del formulario */
+.form-group {
+    width: 100%;
+    margin-bottom: 15px;
+}
+
+.form-label {
+    margin-bottom: 5px;
+}
+
+.form-control {
+    width: 100%;
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #ced4da;
+}
+
+/* Botón de envío personalizado */
+.btn-orange {
+    background-color: rgb(241, 90, 38);
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    width: 100%;
+}
+
+.btn-orange:hover {
+    background-color: rgb(240, 71, 15);
+    color: white;
+}

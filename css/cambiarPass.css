@@ -1,0 +1,39 @@
+body{
+    height: 100%;
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-image: url('../img/Montaje3.jpg'); /* Cambia esto a la ruta de tu imagen de fondo */
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    justify-content: end;
+    align-items: center;
+    padding-right: 100px;
+}
+.form-container {
+    background-color: rgba(255, 255, 255, 0.6); /* Fondo blanco con transparencia */
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+.form-container label {
+    display: block;
+    margin-bottom: 10px;
+}
+.form-container input {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+.form-container button {
+    width: 100%;
+    padding: 10px;
+    background-color: #d90000;
+    border: none;
+    border-radius: 5px;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+}
