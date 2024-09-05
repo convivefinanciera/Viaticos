@@ -38,7 +38,7 @@ if (isset($_POST['email'])) {
 
 function enviarCorreoVerificacion($token, $email) {
     global $response;
-	 $url = 'https://creditoventacero.mx/VentAcero/cambiarPass.php?token=' . $token . '&email=' . urlencode($email);
+	 $url = 'https://convivetufinanciera.com.mx/Viaticos/cambiarPass.php.php?token=' . $token . '&email=' . urlencode($email);
 	 $url_img = 'https://creditoventacero.mx/VentAcero/img/RestorePass.png';
     // Crear una instancia de PHPMailer
     $mail = new PHPMailer(true);
@@ -46,16 +46,16 @@ function enviarCorreoVerificacion($token, $email) {
         //Server settings
         $mail->SMTPDebug = 0;				                      //Enable verbose debug output
         $mail->isSMTP();                                            //Send using SMTP
-        $mail->Host       = 'mail.creditoventacero.com';           //Set the SMTP server to send through
+        $mail->Host       = 'mail.convivefinanciera.com';           //Set the SMTP server to send through
         $mail->SMTPAuth   = true;                                   //Enable SMTP authentication
-        $mail->Username   = 'soporte@creditoventacero.com';        //SMTP username
+        $mail->Username   = 'soporte@convivefinanciera.com';        //SMTP username
         $mail->Password   = 'Convive2025#';                         //SMTP password
         $mail->SMTPSecure = 'ssl';                                  //Enable implicit TLS encryption
         $mail->Port       = 465;                                    //TCP port to connect to
         $mail->CharSet    = 'UTF-8';
 
         //Recipients
-        $mail->setFrom('soporte@creditoventacero.com', 'Soporte TI VentAcero');
+        $mail->setFrom('soporte@convivefinanciera.com', 'Soporte TI Control de Víaticos');
         $mail->addAddress($email);     //Add a recipient
 
         //Content
@@ -167,7 +167,7 @@ function enviarCorreoVerificacion($token, $email) {
 		<table width="65%" height="10%" border ="0" align="center">
 		<tr width="50%">
 			<td style="background-color:#d90000; border-radius: 15px; text-align: center;">
-				<br><h3 style="color: white;">CRÉDITO VENTACERO HA RECIBIDO UNA SOLICITUD PARA RESTABLECER SU CONTRASEÑA</h3><br>
+				<br><h3 style="color: white;">CONVIVE FINANCIERA HA RECIBIDO UNA SOLICITUD PARA RESTABLECER SU CONTRASEÑA</h3><br>
 			</td>
 		</tr>
 		<tr>
@@ -182,7 +182,7 @@ function enviarCorreoVerificacion($token, $email) {
 			</table>
 		<tr style="text-align: center;">
 			<td>
-				<br>Sí desea restablecer su contraseña,<br>seleccione el siguiente enlace: <br><br>
+				<br>Si desea restablecer su contraseña,<br>seleccione el siguiente enlace: <br><br>
 
 				<div style="border-radius: 8px;float:center;display:inline-block;min-height:43px;background-color:#A19F9F;color:white;padding:0px 15px;line-height:43px;font-size:16px;font-weight:bold;letter-spacing:1px">
 					<a style="text-decoration: none; color: white;" href="' . $url . '">Recuperar contraseña</a>
@@ -201,12 +201,12 @@ function enviarCorreoVerificacion($token, $email) {
 
 				Correo:<br>
 
-				soporte@creditoventacero.com <br><br><br>
+				soporte@convivefinanciera.com <br><br><br>
 
-				© Crédito VentAcero<br>
+				© Convive Financiera<br>
 				Todos los derechos reservados 2024 <br><br>
 				Para políticas de privacidad y Términos de uso, consultar: <br>
-				<a href="https://www.creditoventacero.com">www.creditoventacero.com</a><br>
+				<a href="https://www.convivefinanciera.com/">www.convivefinanciera.com</a><br>
 
 			</td>
 		</tr>
