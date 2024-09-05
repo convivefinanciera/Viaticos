@@ -38,7 +38,7 @@ if (isset($_POST['email'])) {
 
 function enviarCorreoVerificacion($token, $email) {
     global $response;
-	 $url = 'https://creditoventacero.mx/VentAcero/cambiarPass.php.php?token=' . $token . '&email=' . urlencode($email);
+	 $url = 'https://convivetufinanciera.com.mx/Viaticos/cambiarPass.php?token=' . $token . '&email=' . urlencode($email);
 	 $url_img = 'https://creditoventacero.mx/VentAcero/img/RestorePass.png';
     // Crear una instancia de PHPMailer
     $mail = new PHPMailer(true);
