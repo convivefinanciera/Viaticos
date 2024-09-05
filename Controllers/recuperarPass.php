@@ -38,13 +38,13 @@ if (isset($_POST['email'])) {
 
 function enviarCorreoVerificacion($token, $email) {
     global $response;
-	 $url = 'https://convivetufinanciera.com.mx/Viaticos/cambiarPass.php.php?token=' . $token . '&email=' . urlencode($email);
+	 $url = 'https://creditoventacero.mx/VentAcero/cambiarPass.php.php?token=' . $token . '&email=' . urlencode($email);
 	 $url_img = 'https://creditoventacero.mx/VentAcero/img/RestorePass.png';
     // Crear una instancia de PHPMailer
     $mail = new PHPMailer(true);
     try {
         //Server settings
-        $mail->SMTPDebug = 0;				                      //Enable verbose debug output
+        $mail->SMTPDebug = 1;				                      //Enable verbose debug output
         $mail->isSMTP();                                            //Send using SMTP
         $mail->Host       = 'mail.convivefinanciera.com';           //Set the SMTP server to send through
         $mail->SMTPAuth   = true;                                   //Enable SMTP authentication
