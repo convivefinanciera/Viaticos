@@ -49,7 +49,7 @@ function enviarCorreoVerificacion($token, $email) {
         $mail->Host       = 'mail.convivefinanciera.com';           //Set the SMTP server to send through
         $mail->SMTPAuth   = true;                                   //Enable SMTP authentication
         $mail->Username   = 'soporte@convivefinanciera.com';        //SMTP username
-        $mail->Password   = '15Admin01%';                         //SMTP password
+        $mail->Password   = 'Soporte2023%';                         //SMTP password
         $mail->SMTPSecure = 'ssl';                                  //Enable implicit TLS encryption
         $mail->Port       = 465;                                    //TCP port to connect to
         $mail->CharSet    = 'UTF-8';
