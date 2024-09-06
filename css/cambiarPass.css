@@ -2,19 +2,19 @@ body{
     height: 100%;
     margin: 0;
     font-family: Arial, sans-serif;
-    background-image: url('../img/Montaje3.jpg'); /* Cambia esto a la ruta de tu imagen de fondo */
+    background-image: url('../img/BLANCO.png'); /* Cambia esto a la ruta de tu imagen de fondo */
     background-size: cover;
-    background-position: center;
+    background-position: top;
     display: flex;
-    justify-content: end;
+    justify-content: center;
     align-items: center;
-    padding-right: 100px;
+    padding-top: 20px;
 }
 .form-container {
-    background-color: rgba(255, 255, 255, 0.6); /* Fondo blanco con transparencia */
+    background-color: rgba(255, 255, 255); /* Fondo blanco con transparencia */
     padding: 20px;
     border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 0 10px #c8c8c8;
 }
 .form-container label {
     display: block;

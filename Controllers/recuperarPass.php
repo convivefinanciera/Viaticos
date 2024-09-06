@@ -23,11 +23,12 @@ if (isset($_POST['email'])) {
 
         $con->query("UPDATE users SET access_token = '$token', token_expiry = '$expiry' WHERE email = '$email' AND status = 1");
 
+		$enviocorreo = enviarCorreoVerificacion($token, $email);
        
-        if (enviarCorreoVerificacion($token, $email)) {
+        if ($enviocorreo) {
             $response['success'] = true;
         } else {
-            $response['error'] = 'No se pudo enviar el correo.';
+            $response['error'] = $enviocorreo;
         }
     } else {
         $response['error'] = 'El correo electrónico no existe o no está activo, favor de consultar a su administrador.';
@@ -44,7 +45,7 @@ function enviarCorreoVerificacion($token, $email) {
     $mail = new PHPMailer(true);
     try {
         //Server settings
-        $mail->SMTPDebug = 0;				                      //Enable verbose debug output
+        $mail->SMTPDebug  = 0;				                      //Enable verbose debug output
         $mail->isSMTP();                                            //Send using SMTP
         $mail->Host       = 'mail.convivefinanciera.com';           //Set the SMTP server to send through
         $mail->SMTPAuth   = true;                                   //Enable SMTP authentication
@@ -61,159 +62,51 @@ function enviarCorreoVerificacion($token, $email) {
         //Content
         $mail->isHTML(true);                                  //Set email format to HTML
         $mail->Subject = 'Recuperación de contraseña';
-        $mail->Body = '
-        <!DOCTYPE html>
-		<html xmlns:v="urn:schemas-microsoft-com:vml" xmlns:o="urn:schemas-microsoft-com:office:office" lang="en">
-		<head>
-		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-		<meta name="viewport" content="width=device-width, initial-scale=1.0">
-		<!--[if mso]><xml><o:OfficeDocumentSettings>
-		<o:PixelsPerInch>96</o:PixelsPerInch><o:AllowPNG/>
-		</o:OfficeDocumentSettings></xml><![endif]--><!--[if !mso]><!--><!--<![endif]-->
-		<style>
-		* {
-			box-sizing: border-box;
-		}
-
-		body {
-			margin: 0;
-			padding: 0;
-		}
-
-		a[x-apple-data-detectors] {
-			color: inherit !important;
-			text-decoration: inherit !important;
-		}
-
-		#MessageViewBody a {
-			color: inherit;
-			text-decoration: none;
-		}
-
-		p {
-			line-height: inherit
-		}
-
-		.desktop_hide,
-		.desktop_hide table {
-			mso-hide: all;
-			display: none;
-			max-height: 0px;
-			overflow: hidden;
-		}
-
-		.image_block img+div {
-			display: none;
-		}
-
-		#converted-body .list_block ul,
-		#converted-body .list_block ol,
-		.body [class~="x_list_block"] ul,
-		.body [class~="x_list_block"] ol,
-		u+.body .list_block ul,
-		u+.body .list_block ol {
-			padding-left: 20px;
-		}
-
-		@media (max-width:620px) {
-			.desktop_hide table.icons-inner {
-			display: inline-block !important;
-			}
-
-			.icons-inner {
-			text-align: center;
-			}
-
-			.icons-inner td {
-			margin: 0 auto;
-			}
-
-			.image_block div.fullWidth {
-			max-width: 100% !important;
-			}
-
-			.mobile_hide {
-			display: none;
-			}
-
-			.row-content {
-			width: 100% !important;
-			}
-
-			.stack .column {
-			width: 100%;
-			display: block;
-			}
-
-			.mobile_hide {
-			min-height: 0;
-			max-height: 0;
-			max-width: 0;
-			overflow: hidden;
-			font-size: 0px;
-			}
-
-			.desktop_hide,
-			.desktop_hide table {
-			display: table !important;
-			max-height: none !important;
-			}
-		}
-		</style>
-		</head>
-
-		<body align = "center" margin="0" padding="0" style="background-color: #ededed;">
-		<br>
-		<table width="65%" height="10%" border ="0" align="center">
-		<tr width="50%">
-			<td style="background-color:#d90000; border-radius: 15px; text-align: center;">
-				<br><h3 style="color: white;">CONVIVE FINANCIERA HA RECIBIDO UNA SOLICITUD PARA RESTABLECER SU CONTRASEÑA</h3><br>
-			</td>
-		</tr>
-		<tr>
-			<td width="50%">
-			
-			<table width="100%" border="0" style="mso-table-lspace: 0pt; mso-table-rspace: 0pt; word-break: break-word; color: #101112; direction: ltr; font-family: Arial, Helvetica, sans-serif; font-size: 16px; font-weight: 400; letter-spacing: 0px; line-height: 120%; text-align: center; mso-line-height-alt: 19.2px;">
-			<tr>
-			<td>
-			<img style="border-radius: 15px;" src="'.$url_img.'">
-			</td>
-			</tr>
-			</table>
-		<tr style="text-align: center;">
-			<td>
-				<br>Si desea restablecer su contraseña,<br>seleccione el siguiente enlace: <br><br>
-
-				<div style="border-radius: 8px;float:center;display:inline-block;min-height:43px;background-color:#A19F9F;color:white;padding:0px 15px;line-height:43px;font-size:16px;font-weight:bold;letter-spacing:1px">
-					<a style="text-decoration: none; color: white;" href="' . $url . '">Recuperar contraseña</a>
-				</div>
-				<br><br> Este vínculo estará disponible únicamente por 5<br>minutos a partir de la recepción de este correo<br><br>
-			</td>
-		</tr>
-		<tr style="text-align: center;">
-			<td>
-				<br>
-				Cualquier duda... ¡Contáctanos!<br><br>
-
-				Todo México:<br>
-
-				800 044 01 56<br><br>
-
-				Correo:<br>
-
-				soporte@convivefinanciera.com <br><br><br>
-
-				© Convive Financiera<br>
-				Todos los derechos reservados 2024 <br><br>
-				Para políticas de privacidad y Términos de uso, consultar: <br>
-				<a href="https://www.convivefinanciera.com/">www.convivefinanciera.com</a><br>
-
-			</td>
-		</tr>
-	</table><br><br>  
-
-</body>
-</html>';
+        $mail->Body = "
+			<!DOCTYPE html>
+			<html xmlns:v='urn:schemas-microsoft-com:vml' xmlns:o='urn:schemas-microsoft-com:office:office' lang='en'>
+			<head>
+				<meta http-equiv='Content-Type' content='text/html; charset=utf-8'>
+				<meta name='viewport' content='width=device-width, initial-scale=1.0'>
+				<style>
+					* { box-sizing: border-box; }
+					p { line-height: 1.5; margin: 0; }
+					img { display: block; }
+				</style>
+			</head>
+			<body style='background-color: #f3f6f9; font-size: 16px; margin: 0; padding: 0;'>
+				<table role='presentation' cellspacing='0' cellpadding='0' border='0' style='width: 100%; max-width: 800px; margin: 0 auto; background-color: #ffffff;'>
+					<tr>
+						<td style='padding: 20px;'>
+							<!-- Header with Logo -->
+							<table role='presentation' cellspacing='0' cellpadding='0' border='0' width='100%'>
+								<tr>
+									<td style='text-align: center;'>
+										<img src='https://convivetufinanciera.com.mx/Viaticos/img/convivelogo.jpg' alt='Convive Financiera Logo' style='height: 60px;'>
+									</td>
+								</tr>
+							</table>
+							<!-- Main Content -->
+							<table role='presentation' cellspacing='0' cellpadding='0' border='0' width='100%' style='background-color: #ffffff; box-shadow: 0 0 10px rgba(0,0,0,0.1);'>
+								<tr>
+									<td style='padding: 20px; text-align: center;'>
+										<p style='font-weight: 600; font-size: 18px; margin-bottom: 10px;'>Hemos recibido una solicitud para restablecer su contraseña.</p>
+										<hr style='width: 150px; height: 3px; background-color: #d90000; border: none; margin: 10px auto;'>
+										<p>Para restablecer su contraseña seleccione el siguiente enlace.</p>
+										<a href='$url' style='display: inline-block; text-decoration: none; background-color: #A19F9F; color: #ffffff; padding: 12px 20px; border-radius: 8px; font-weight: bold; font-size: 16px;'>Recuperar contraseña</a>
+										<p style='margin-top: 20px;'>Este enlace estará disponible únicamente por 5 minutos a partir de la recepción de este correo.</p>
+										<p style='font-weight: 600;'>Cualquier duda ¡Contáctanos!</p>
+										<p>Todo México:<br>800 044 01 56</p>
+										<p>Correo:<br>soporte@convivefinanciera.com</p>
+										<p style='font-size: 12px;'>© Convive Financiera<br>Todos los derechos reservados 2024<br>Para políticas de privacidad y Términos de uso, consultar:<br><a href='https://www.convivefinanciera.com/'>www.convivefinanciera.com</a></p>
+									</td>
+								</tr>
+							</table>
+						</td>
+					</tr>
+				</table>
+			</body>
+			</html>";
 
         $mail->send();
         return true;
