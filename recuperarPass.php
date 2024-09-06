@@ -5,7 +5,8 @@ include_once 'include/head.php';
 
 <body>
     <div class="form-container">
-        <h2 class="mb-4 text-center">Restablecer Contraseña</h2>
+        <img class="mb-3" src="img/viaticos.png" alt="logo viaticos" style="width: 300px;display: block; margin: 0 auto;">
+        <h2 class="mb-4 text-center" style="font-size: 24px">Restablecer Contraseña</h2>
         <div class="form-group mb-3">
             <label for="email" class="form-label">Escribe tu correo para continuar:</label>
             <input type="email" class="form-control" id="email" name="email" placeholder="correo@ventacero.com" required>

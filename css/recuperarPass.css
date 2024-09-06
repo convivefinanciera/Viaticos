@@ -18,6 +18,7 @@ body {
     /* align-items: center; */
     background: rgba(255, 255, 255);
     padding: 40px;
+    padding-top: 10px;
     border-radius: 10px;
     box-shadow: 0 0 10px #c8c8c8;
     border: 1px solid #e7e7e7;
@@ -39,9 +40,19 @@ body {
     border-radius: 5px;
     border: 1px solid #ced4da;
 }
+.form-container button {
+    width: 100%;
+    padding: 10px;
+    background-color: #d90000;
+    border: none;
+    border-radius: 5px;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+}
 
 /* Botón de envío personalizado */
-.btn-orange {
+/* .btn-orange {
     background-color: rgb(241, 90, 38);
     color: white;
     border: none;
@@ -55,3 +66,4 @@ body {
     background-color: rgb(240, 71, 15);
     color: white;
 }
+ */

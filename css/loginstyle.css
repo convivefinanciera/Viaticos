@@ -9,10 +9,11 @@ h1 {
   
   body {
     font-family: "Poppins", sans-serif;
-    /*height: 100vh;
-    background-image: url('../img/viaticos.png'); /* Reemplaza 'ruta_de_tu_imagen.jpg' con la ruta de tu imagen de fondo */
+    background-image: url('../img/BLANCO.png'); /* Reemplaza 'ruta_de_tu_imagen.jpg' con la ruta de tu imagen de fondo */
     background-size: cover; /* Para cubrir todo el área del body */
-    background-position: center; /* Para centrar la imagen */
+    background-position: top; /* Para centrar la imagen */
+    background-repeat: no-repeat;
+    /*height: 100vh;
     /* filter: blur(2px); /* Ajusta el valor de desenfoque según sea necesario */
   } 
   
@@ -50,19 +51,19 @@ h1 {
   #formContent {
     -webkit-border-radius: 10px;
     border-radius: 10px;
-    background-color: rgba(255, 255, 255, 0.7); /* Cambia el último valor (0.7) para ajustar la transparencia */
+    background-color: rgba(255, 255, 255); /* Cambia el último valor (0.7) para ajustar la transparencia */
     padding: 30px;
     width: 90%;
     max-width: 450px;
     position: relative;
     padding: 0px;
-    -webkit-box-shadow: 0 30px 60px 0 rgba(0,0,0,0.3);
-    box-shadow: 0 30px 60px 0 rgba(0,0,0,0.3);
+    -webkit-box-shadow: 0 30px 60px 0 #c8c8c8;
+    box-shadow: 0 30px 60px 0 #c8c8c8;
     text-align: center;
   }
   
   #formFooter {
-      background-color: rgba(255, 255, 255, 0.7); /* Cambia el último valor (0.7) para ajustar la transparencia */
+      background-color: rgba(255, 255, 255); /* Cambia el último valor (0.7) para ajustar la transparencia */
     border-top: 1px solid rgba(64, 65, 64);
     padding: 25px;
     text-align: center;
