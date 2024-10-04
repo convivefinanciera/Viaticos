@@ -52,14 +52,6 @@
                 </a>
             </li><!-- End Consumos Page Nav -->
 
-            <li class="nav-item">
-                <?php echo '<a class="nav-link collapsed" href="' . $rutaServer . 'administracion/Comprobantes/comprobantes.php">'; ?>
-                <!-- <a class="nav-link collapsed" href="Administracion/consumos.php"> -->
-                <i class="bi bi-coin"></i>
-                <span>Comprobantes</span>
-                </a>
-            </li><!-- End Comprobantes Page Nav -->
-
         <?php } ?>
 
         <?php if ($_SESSION['role'] == "3") { ?>
@@ -87,14 +79,6 @@
                 <span>Consumos</span>
                 </a>
             </li><!-- End Consumos Page Nav -->
-
-            <li class="nav-item">
-                <?php echo '<a class="nav-link collapsed" href="' . $rutaServer . 'administracion/Comprobantes/comprobantes.php">'; ?>
-                <!-- <a class="nav-link collapsed" href="Administracion/consumos.php"> -->
-                <i class="bi bi-coin"></i>
-                <span>Comprobantes</span>
-                </a>
-            </li><!-- End Comprobantes Page Nav -->
 
         <?php } ?>
     </ul>

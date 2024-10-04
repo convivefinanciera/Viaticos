@@ -609,7 +609,7 @@ h6 {
   top: 60px;
   left: 0;
   bottom: 0;
-  width: 300px;
+  width: 230px;
   z-index: 996;
   transition: all 0.3s;
   padding: 20px;
@@ -1264,4 +1264,16 @@ h6 {
   padding: 20px;
   border: 1px solid #888;
   width: 130%; /* Could be more or less, depending on screen size */
+}
+
+
+th, td {
+  white-space: nowrap;         /* Evita el ajuste de texto en varias líneas */
+  max-width: 150px;            /* Ancho máximo de las celdas */
+  overflow: hidden;            /* Esconde el contenido que se desborde */
+  text-overflow: ellipsis;     /* Muestra '...' si el texto es demasiado largo */
+}
+
+#tablaComprobantes td:first-child {  /* Aplica solo a la primera columna (Archivo) */
+  max-width: 200px;             /* Puedes ajustar el ancho específico para esta columna */
 }

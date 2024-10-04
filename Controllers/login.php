@@ -27,13 +27,13 @@ if (!empty($_POST['email']) && !empty($_POST['contraseña'])) {
         $empresa_id = $row["empresaID"];
         $rol = $row["role"];
 
-        // echo "empresa id ".$empresa_id." rol ".$rol;
+        //echo "empresa id ".$empresa_id." rol ".$rol;
 
         //Verificamos empresa y rol
         //Contro Viáticos id 67 - Convive Financiera 1
         //Buscar tabla usuariosroles
         if ((($empresa_id == 67 || $empresa_id == 1) && ($rol == 'admin' || $rol == 'superadmin'))) {
-            // echo "Si verifica admin y 63";
+             //echo "Si verifica admin y 63";
             // Verificar si la contraseña proporcionada coincide con el hash almacenado
             if (password_verify($password, $hashed_password)) {
                 $result = $con->query("SELECT ur.*, d.Dependencia, r.Rol as rol_viaticos from tb_web_cv_usuariosroles ur join tb_web_cv_roles r on ur.ID_Rol = r.ID_Rol join tb_web_cv_dependencias d on ur.ID_Dependencia = d.ID_Dependencia where ur.ID_Usuario =" . $row['id'] . ";");
