@@ -77,16 +77,6 @@ echo "<style>
         </tbody>
     </table>
     </div>
-
-    <!-- <div class="container margin-top-1"> -->
-    <!-- <div class="row mt-2">
-            <div class="col text-center"><button class="btn" type="button" style="background-color: #d90000; color:white;">Recientes</button></div>
-            <div class="col text-center"><button class="btn" type="button" style="background-color: #d90000; color:white;">En revisión</button></div>
-            <div class="col text-center"><button class="btn" type="button" style="background-color: #d90000; color:white;">Aprobadas</button></div>
-            <div class="col text-center"><button class="btn" type="button" style="background-color: #d90000; color:white;">Autorizadas</button></div>
-            <div class="col text-center"><button class="btn" type="button" style="background-color: #d90000; color:white;">Canceladas</button></div>
-        </div> -->
-    <!-- </div> -->
 <?php echo '<script src="' . $rutaServer . 'js/monederos.js"></script>'; ?>
 </main>
 
