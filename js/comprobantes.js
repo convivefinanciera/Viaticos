@@ -26,7 +26,6 @@ function MostrarComprobantes() {
     });
 }
 
-
 function CrearTablaComprobantes(datos) {
     new DataTable('#tablaComprobantes', {
         'paging': true,
@@ -36,12 +35,14 @@ function CrearTablaComprobantes(datos) {
         },
         data: datos,
         columns: [
-            {data: 'TarjetaDebID'},
-            {data: 'NombreCompleto'},
-            {data: 'FechaHrOpe'},
+            {data: 'nombre'}, //Nombre comprobante
+            {data: 'tamanio'},
             {data: 'descripcion'}, //Tipo de comprobante
             {data: 'NumTransaccion'},
             {data: 'TipoMovimiento'},
+            {data: 'TarjetaDebID'},
+            {data: 'NombreCompleto'},
+            {data: 'FechaHrOpe'},
             {data: 'MontoOperacion'},
             {data: ''},
         ],
@@ -62,7 +63,6 @@ function CrearTablaComprobantes(datos) {
 }
 
 function VerDetalleComprobante(id_comprobante, tarjeta, nomComprobante, tipoComprobante, tipoMovimiento){
-    // Limpiar los campos antes de llenarlos con nuevos datos
     $("#numTarjeta").empty();
     $("#nombreComprobante").empty();
     $("#tipoComprobante").empty();
